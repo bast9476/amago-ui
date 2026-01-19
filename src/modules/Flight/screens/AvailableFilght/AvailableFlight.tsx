@@ -62,15 +62,14 @@ export default function AvailableFlight() {
         <ActiveFilters />
 
         {/* Flight Cards */}
-        <View className="px-4 pt-4 pb-24">
+        <View className="px-4 pt-4">
           {availableFlights.map((flight: Flight) => (
             <FlightCard key={flight.id} flightId={flight.id} />
           ))}
         </View>
+        {/* Sticky Footer */}
+        <SelectedFlightFooter onContinue={handleContinue} />
       </ScrollView>
-
-      {/* Sticky Footer */}
-      <SelectedFlightFooter onContinue={handleContinue} />
 
       {/* Filters Modal */}
       <FiltersModal visible={showFiltersModal} onClose={() => setShowFiltersModal(false)} />

@@ -7,6 +7,7 @@ export type RootStackParamList = {
   Account: undefined;    // Account module navigator
   UserLevel: undefined;   // User level module navigator
   Flight: undefined;     // Flight module navigator
+  Payment: undefined;    // Payment module navigator
 };
 
 // Home module navigation types
@@ -63,6 +64,12 @@ export type FlightStackParamList = {
   Home: undefined;
   AvailableFlight: undefined;
   ReviewFlight: undefined;
+};
+
+// Payment module navigation types
+export type PaymentStackParamList = {
+  Merchant: undefined;
+  PaymentDetails: undefined;
 };
 
 // Export all param lists for use in navigation hooks

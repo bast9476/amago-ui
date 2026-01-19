@@ -7,6 +7,7 @@ let homeReducer: any = null;
 let accountReducer: any = null;
 let userLevelReducer: any = null;
 let flightReducer: any = null;
+let paymentReducer: any = null;
 
 const getDigitalReducer = () => {
   if (!digitalReducer) {
@@ -61,6 +62,14 @@ const getFlightReducer = () => {
   return flightReducer;
 };
 
+const getPaymentReducer = () => {
+  if (!paymentReducer) {
+    const paymentReducerFactory = require('@modules/payment/store').default;
+    paymentReducer = paymentReducerFactory();
+  }
+  return paymentReducer;
+};
+
 // Store is created lazily - only when first accessed
 // This ensures store creation happens after app registration
 let storeInstance: ReturnType<typeof configureStore> | null = null;
@@ -75,6 +84,7 @@ export const getStore = (): ReturnType<typeof configureStore> => {
       const account = getAccountReducer();
       const userLevel = getUserLevelReducer();
       const flight = getFlightReducer();
+      const payment = getPaymentReducer();
 
       // Get RTK Query APIs (lazy loaded)
       // These are prepared for future API integration
@@ -105,6 +115,7 @@ export const getStore = (): ReturnType<typeof configureStore> => {
         account,
         userLevel,
         flight,
+        payment,
         [homeApi.reducerPath]: homeApi.reducer,
         [messagesApi.reducerPath]: messagesApi.reducer,
         [chatApi.reducerPath]: chatApi.reducer,

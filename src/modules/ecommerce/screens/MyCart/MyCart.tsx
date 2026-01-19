@@ -13,9 +13,11 @@ import {
 } from '@modules/ecommerce/store/slices/cartSlice';
 import { selectCartItems, selectCartTotal } from '@modules/ecommerce/store/selectors/cartSelectors';
 import { CartItem, CheckoutModal } from './components';
+import { useCrossModuleNavigation } from '@modules/common/hooks/useCrossModuleNavigation';
 
 export default function MyCart() {
     const dispatch = useAppDispatch();
+    const navigateToModule = useCrossModuleNavigation();
 
     // Redux state
     const cartItems = useAppSelector(selectCartItems);
@@ -57,7 +59,7 @@ export default function MyCart() {
 
     const handleGoToPayment = () => {
         setShowCheckoutModal(false);
-        // TODO: Navigate to payment screen
+        navigateToModule('Payment', 'Merchant');
     };
 
     return (

@@ -9,6 +9,7 @@ import DigitalNavigator from '@modules/digital/navigation/DigitalNavigator';
 import AccountNavigator from '@modules/Account/navigation/AccountNavigator';
 import UserLevelNavigator from '@modules/UserLevel/navigation/UserLevelNavigator';
 import FlightNavigator from '@modules/Flight/navigation/FlightNavigator';
+import PaymentNavigator from '@modules/payment/navigation/PaymentNavigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -29,6 +30,7 @@ export default function AppNavigator() {
                 <Stack.Screen name="Account" component={AccountNavigator} />
                 <Stack.Screen name="UserLevel" component={UserLevelNavigator} />
                 <Stack.Screen name="Flight" component={FlightNavigator} />
+                <Stack.Screen name="Payment" component={PaymentNavigator} />
             </Stack.Navigator>
         </NavigationContainer>
     );
