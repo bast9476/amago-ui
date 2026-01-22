@@ -46,3 +46,63 @@ export const selectSelectedMerchant = createSelector(
       ?? null;
   }
 );
+
+export const selectPaymentDetails = createSelector(
+  [selectPaymentState],
+  (paymentState) => paymentState.paymentDetails
+);
+
+export const selectPaymentAmount = createSelector(
+  [selectPaymentDetails],
+  (details) => details.amount
+);
+
+export const selectPromoCode = createSelector(
+  [selectPaymentDetails],
+  (details) => details.promoCode
+);
+
+export const selectSchedulePayment = createSelector(
+  [selectPaymentDetails],
+  (details) => details.schedulePayment
+);
+
+export const selectSaveAsTemplate = createSelector(
+  [selectPaymentDetails],
+  (details) => details.saveAsTemplate
+);
+
+export const selectSelectedPaymentMethod = createSelector(
+  [selectPaymentDetails],
+  (details) => details.selectedPaymentMethod
+);
+
+export const selectAvailableBalance = createSelector(
+  [selectPaymentDetails],
+  (details) => details.availableBalance
+);
+
+export const selectDailyLimitLeft = createSelector(
+  [selectPaymentDetails],
+  (details) => details.dailyLimitLeft
+);
+
+export const selectPaymentReview = createSelector(
+  [selectPaymentState],
+  (paymentState) => paymentState.paymentReview
+);
+
+export const selectAuthType = createSelector(
+  [selectPaymentReview],
+  (review) => review.authType
+);
+
+export const selectPinDigits = createSelector(
+  [selectPaymentReview],
+  (review) => review.pinDigits
+);
+
+export const selectShowPin = createSelector(
+  [selectPaymentReview],
+  (review) => review.showPin
+);

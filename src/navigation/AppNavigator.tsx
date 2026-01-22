@@ -17,7 +17,7 @@ export default function AppNavigator() {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Onboarding"
+                initialRouteName="Ecommerce"
                 screenOptions={{
                     headerShown: false,
                 }}

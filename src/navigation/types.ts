@@ -70,6 +70,7 @@ export type FlightStackParamList = {
 export type PaymentStackParamList = {
   Merchant: undefined;
   PaymentDetails: undefined;
+  PaymentReview: undefined;
 };
 
 // Export all param lists for use in navigation hooks

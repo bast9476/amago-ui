@@ -1,13 +1,23 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAppSelector } from '@src/store/hooks';
 import { selectSelectedMerchant } from '@modules/payment/store';
 import { merchantLogos } from '@modules/payment/store/initialData';
+import type { PaymentStackParamList } from '@src/navigation/types';
+
+type NavigationProp = NativeStackNavigationProp<PaymentStackParamList, 'PaymentDetails'>;
 
 export default function PaymentFooter() {
+  const navigation = useNavigation<NavigationProp>();
   const selectedMerchant = useAppSelector(selectSelectedMerchant);
   const fallbackLogo = merchantLogos.biman;
+
+  const handleContinue = () => {
+    navigation.navigate('PaymentDetails');
+  };
 
   return (
     <View
@@ -33,7 +43,11 @@ export default function PaymentFooter() {
             </Text>
           </View>
         </View>
-        <TouchableOpacity className="w-[106px] h-[44px] rounded-[14px] overflow-hidden" activeOpacity={0.8}>
+        <TouchableOpacity
+          className="w-[106px] h-[44px] rounded-[14px] overflow-hidden"
+          activeOpacity={0.8}
+          onPress={handleContinue}
+        >
           <View style={StyleSheet.absoluteFill} pointerEvents="none">
             <Svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
               <Defs>

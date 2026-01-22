@@ -5,3 +5,11 @@ export interface Merchant {
   name: string;
   logo: ImageSourcePropType;
 }
+
+export interface PaymentMethod {
+  id: string;
+  name: string;
+  logo: ImageSourcePropType;
+  fee?: string;
+  cashback?: string;
+}
