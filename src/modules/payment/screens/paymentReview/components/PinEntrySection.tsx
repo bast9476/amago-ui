@@ -91,7 +91,7 @@ export default function PinEntrySection() {
       {/* PIN Display Circles */}
       <View className="w-full items-center ml-[60px]">
         <View className="flex-row items-center gap-x-4">
-          {[0, 1, 2, 3, 4, 5].map((index) => (
+          {[0, 1, 2, 3, 4].map((index) => (
             <View
               key={index}
               className={`w-[12px] h-[12px] rounded-full border items-center justify-center ${

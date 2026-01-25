@@ -13,6 +13,7 @@ export {
   removePinDigit,
   clearPin,
   togglePinVisibility,
+  toggleBookingRecurring,
 } from './slices/paymentSlice';
 
 export * from './selectors/paymentSelectors';

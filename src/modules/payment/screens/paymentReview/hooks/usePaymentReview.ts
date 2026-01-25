@@ -1,5 +1,8 @@
 import { useMemo } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAppDispatch, useAppSelector } from '@src/store/hooks';
+import type { PaymentStackParamList } from '@src/navigation/types';
 import {
   selectPaymentAmount,
   selectSelectedPaymentMethod,
@@ -18,6 +21,7 @@ import { paymentMethods } from '@modules/payment/store/initialData';
 
 export function usePaymentReview() {
   const dispatch = useAppDispatch();
+  const navigation = useNavigation<NativeStackNavigationProp<PaymentStackParamList>>();
   const amount = useAppSelector(selectPaymentAmount);
   const selectedPaymentMethod = useAppSelector(selectSelectedPaymentMethod);
   const selectedMerchant = useAppSelector(selectSelectedMerchant);
@@ -97,12 +101,11 @@ export function usePaymentReview() {
   };
 
   const handlePinDigitPress = (digit: string) => {
-    if (pinDigits.length < 6) {
+    if (pinDigits.length < 5) {
       dispatch(addPinDigit(digit));
-      // Auto-submit when 6 digits are entered
-      if (pinDigits.length === 5) {
-        // TODO: Validate and process PIN
-        console.log('PIN entered:', [...pinDigits, digit].join(''));
+      // Auto-submit when 5 digits are entered
+      if (pinDigits.length === 4) {
+        navigation.navigate('BookingConfirmation');
       }
     }
   };

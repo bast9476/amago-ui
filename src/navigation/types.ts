@@ -71,6 +71,7 @@ export type PaymentStackParamList = {
   Merchant: undefined;
   PaymentDetails: undefined;
   PaymentReview: undefined;
+  BookingConfirmation: undefined;
 };
 
 // Export all param lists for use in navigation hooks

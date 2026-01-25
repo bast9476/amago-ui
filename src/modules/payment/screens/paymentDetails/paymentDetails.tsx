@@ -74,9 +74,9 @@ export default function PaymentDetailsScreen() {
             onValueChange={handleSaveAsTemplateChange}
           />
         </View>
+        <PaymentDetailsFooter />
       </ScrollView>
 
-      <PaymentDetailsFooter />
 
     </SafeAreaView>
   );

@@ -44,8 +44,8 @@ export default function LevelProgress() {
     return (
         <SafeAreaView className="flex-1 bg-white">
             <StatusBar style='dark' />
+            <ProgressHeader onBack={() => navigation.goBack()} />
             <ScrollView contentContainerStyle={{ paddingBottom: 32 }}>
-                <ProgressHeader onBack={() => navigation.goBack()} />
 
                 <View>
                     <LevelOverview
@@ -80,8 +80,8 @@ export default function LevelProgress() {
                                 width={600}
                                 height={46}
                                 viewBox="0 0 300 46"
-            preserveAspectRatio="none"
-          >
+                                preserveAspectRatio="none"
+                            >
                                 <Defs>
                                     <LinearGradient id="completeTasksBg" x1="0%" y1="100%" x2="100%" y2="0%">
                                         <Stop offset="57.95%" stopColor="#07B556" />

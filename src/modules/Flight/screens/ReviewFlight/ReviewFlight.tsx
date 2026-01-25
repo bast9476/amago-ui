@@ -17,8 +17,8 @@ import {
 export default function ReviewFlight() {
   return (
     <SafeAreaView className="flex-1 bg-white" edges={['top']}>
+      <ReviewFlightHeader />
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
-        <ReviewFlightHeader />
         <FlightSummaryCard />
         <FareOptionsSection />
         <BaggageAndCO2Section />

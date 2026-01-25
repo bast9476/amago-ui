@@ -57,8 +57,8 @@ export default function GamifiedUserLevelSystem() {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <StatusBar style="dark" />
+      <Header onBack={() => navigation.goBack()} />
       <ScrollView contentContainerStyle={{ paddingBottom: 24 }}>
-        <Header onBack={() => navigation.goBack()} />
         <View className="mt-[24px] px-4">
           <StatsRow
             stats={[

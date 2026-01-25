@@ -50,8 +50,8 @@ export default function AvailableFlight() {
     <SafeAreaView className="flex-1 bg-white" edges={['top']}>
       <StatusBar style="dark" />
 
+      <AvailableFlightHeader />
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
-        <AvailableFlightHeader />
         {/* Search Details Bar */}
         <SearchDetailsBar />
 

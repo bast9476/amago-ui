@@ -19,6 +19,21 @@ export interface PaymentReviewState {
   showPin: boolean;
 }
 
+export interface BookingConfirmationState {
+  statusTitle: string;
+  totalPaid: string;
+  amount: string;
+  fee: string;
+  transactionId: string;
+  dateTime: string;
+  maskedAccount: string;
+  categoryLabel: string;
+  balanceLeft: string;
+  pointsTitle: string;
+  pointsSubtitle: string;
+  isRecurring: boolean;
+}
+
 export interface PaymentState {
   searchQuery: string;
   selectedMerchantId: string | null;
@@ -26,6 +41,7 @@ export interface PaymentState {
   favoriteMerchants: Merchant[];
   paymentDetails: PaymentDetailsState;
   paymentReview: PaymentReviewState;
+  bookingConfirmation: BookingConfirmationState;
 }
 
 const initialPaymentDetailsState: PaymentDetailsState = {
@@ -44,6 +60,21 @@ const initialPaymentReviewState: PaymentReviewState = {
   showPin: false,
 };
 
+const initialBookingConfirmationState: BookingConfirmationState = {
+  statusTitle: 'Payment Successful',
+  totalPaid: '৳3,030.00',
+  amount: '৳3,000.00',
+  fee: '৳30.00',
+  transactionId: 'TXN0352388393',
+  dateTime: 'Oct 13, 2025, 04:46 PM',
+  maskedAccount: '01••••••234',
+  categoryLabel: 'Flight',
+  balanceLeft: '৳12,980.00',
+  pointsTitle: 'Points Earned',
+  pointsSubtitle: '+20 pts added to your account',
+  isRecurring: false,
+};
+
 const initialState: PaymentState = {
   searchQuery: '',
   selectedMerchantId: 'biman',
@@ -51,6 +82,7 @@ const initialState: PaymentState = {
   favoriteMerchants,
   paymentDetails: initialPaymentDetailsState,
   paymentReview: initialPaymentReviewState,
+  bookingConfirmation: initialBookingConfirmationState,
 };
 
 const paymentSlice = createSlice({
@@ -93,7 +125,7 @@ const paymentSlice = createSlice({
       }
     },
     addPinDigit: (state, action: PayloadAction<string>) => {
-      if (state.paymentReview.pinDigits.length < 6) {
+      if (state.paymentReview.pinDigits.length < 5) {
         state.paymentReview.pinDigits.push(action.payload);
       }
     },
@@ -105,6 +137,9 @@ const paymentSlice = createSlice({
     },
     togglePinVisibility: (state) => {
       state.paymentReview.showPin = !state.paymentReview.showPin;
+    },
+    toggleBookingRecurring: (state) => {
+      state.bookingConfirmation.isRecurring = !state.bookingConfirmation.isRecurring;
     },
   },
 });
@@ -124,6 +159,7 @@ export const {
   removePinDigit,
   clearPin,
   togglePinVisibility,
+  toggleBookingRecurring,
 } = paymentSlice.actions;
 
 export default paymentSlice.reducer;

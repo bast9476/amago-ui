@@ -51,8 +51,8 @@ export default function FlightHomeScreen() {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <StatusBar style="dark" />
+      <FlightHeader />
       <ScrollView className="flex-1 bg-[#f9fafb]">
-        <FlightHeader />
         <View className="pt-4">
           <FareTypeSelector />
           <TripTypeSelector

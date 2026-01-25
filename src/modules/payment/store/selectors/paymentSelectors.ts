@@ -10,6 +10,34 @@ const defaultPaymentState: PaymentState = {
   selectedMerchantId: null,
   recentMerchants: [],
   favoriteMerchants: [],
+  paymentDetails: {
+    amount: '0.00',
+    promoCode: '',
+    schedulePayment: false,
+    saveAsTemplate: false,
+    selectedPaymentMethod: null,
+    availableBalance: '0.00',
+    dailyLimitLeft: '0',
+  },
+  paymentReview: {
+    authType: 'faceId',
+    pinDigits: [],
+    showPin: false,
+  },
+  bookingConfirmation: {
+    statusTitle: '',
+    totalPaid: '',
+    amount: '',
+    fee: '',
+    transactionId: '',
+    dateTime: '',
+    maskedAccount: '',
+    categoryLabel: '',
+    balanceLeft: '',
+    pointsTitle: '',
+    pointsSubtitle: '',
+    isRecurring: false,
+  },
 };
 
 export const selectPaymentState = (state: RootState): PaymentState => {
@@ -105,4 +133,9 @@ export const selectPinDigits = createSelector(
 export const selectShowPin = createSelector(
   [selectPaymentReview],
   (review) => review.showPin
+);
+
+export const selectBookingConfirmation = createSelector(
+  [selectPaymentState],
+  (paymentState) => paymentState.bookingConfirmation
 );

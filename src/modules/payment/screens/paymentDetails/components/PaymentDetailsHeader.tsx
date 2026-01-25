@@ -76,7 +76,7 @@ export default function PaymentDetailsHeader() {
         >
           <BackArrowIcon />
         </TouchableOpacity>
-        <Text className="text-[16px] font-semibold text-[#242424]">Payment Details</Text>
+        <Text className="text-[18px] font-semibold text-[#242424]">Payment Details</Text>
         <TouchableOpacity className="w-10 h-10 items-center justify-center">
           <InfoIconCircle />
         </TouchableOpacity>
